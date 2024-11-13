@@ -1,0 +1,103 @@
+<style>
+  /* Estilo para o cartão que contém o cabeçalho e a barra de pesquisa */
+  .card {
+    display: flex !important; /* Define o cartão como um contêiner flexível */
+    flex-direction: row; /* Alinha os itens na horizontal */
+    margin-top: 5rem; /* Adiciona uma margem superior */
+    margin-bottom: -3px; /* Adiciona uma margem inferior negativa */
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /* Define a família de fontes */
+    border-bottom: none !important; /* Remove a borda inferior */
+  }
+
+  /* Estilo para o corpo do cartão */
+  .card-body {
+    display: flex; /* Define o corpo como um contêiner flexível */
+    justify-content: space-between; /* Espaça os itens igualmente ao longo do eixo horizontal */
+  }
+
+  /* Estilo para o título dentro do cartão */
+  h2 {
+    margin-right: 2rem; /* Adiciona uma margem à direita do título */
+  }
+
+  /* Estilo para o contêiner da barra de pesquisa */
+  #divPesquisa {
+    display: flexbox; /* Corrige para 'display: flex' */
+    justify-content: space-between; /* Espaça os itens igualmente ao longo do eixo horizontal */
+  }
+
+  /* Estilo para o ícone de pesquisa dentro da barra de pesquisa */
+  #basic-addon1 {
+    background-color: rgba(3, 34, 34, 0); /* Define a cor de fundo como transparente */
+    border-right: none; /* Remove a borda direita */
+  }
+
+  /* Estilo para o campo de entrada de pesquisa */
+  #inputP {
+    border-left: none; /* Remove a borda esquerda */
+  }
+
+  /* Estilo para a tabela */
+  .table {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; /* Define a família de fontes */
+  }
+</style>
+
+<div class="card">
+  <div class="card-body">
+    <div class="input-group" id="divPesquisa">
+      <!-- Título da seção -->
+      <h2>ZONA AZUL</h2>
+      <!-- Grupo de entrada para a pesquisa -->
+      <span class="input-group-text" id="basic-addon1">
+        <!-- Ícone de pesquisa -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#032222b0" class="bi bi-search" viewBox="0 0 16 16">
+          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+        </svg>
+      </span>
+      <!-- Campo de entrada para pesquisa -->
+      <input type="text" class="form-control" placeholder="Pesquisar" aria-label="Pesquisar" aria-describedby="basic-addon1" id="inputP">
+    </div>
+  </div>
+</div>
+
+<!-- Tabela de veículos -->
+<table class="table">
+  <thead>
+    <tr>
+      <!-- Cabeçalhos das colunas da tabela -->
+      <th class="table-info">#ID</th>
+      <th class="table-info">Placa</th>
+      <th class="table-info">Modelo</th>
+      <th class="table-info">Numero Vaga</th>
+      <th class="table-info">Ocupação</th>
+      <th class="table-info">Localização</th>
+    </tr>
+  </thead>
+  <tbody id="tableBody">
+    <!-- Loop para iterar sobre cada veículo no array 'veiculos' -->
+    {{#each veiculos}}
+    <tr>
+      <!-- Dados de cada veículo -->
+      <th scope="row"></th>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>
+        <!-- Contêiner para os botões de ação -->
+        <div class="d-flex">
+          <!-- Botão de cadastro da vaga -->
+        <a href="">
+          <button class="btn btn-primary" id="vaga">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-car-front-fill" viewBox="0 0 16 16">
+              <path d="M2.52 3.515A2.5 2.5 0 0 1 4.82 2h6.362c1 0 1.904.596 2.298 1.515l.792 1.848c.075.175.21.319.38.404.5.25.855.715.965 1.262l.335 1.679q.05.242.049.49v.413c0 .814-.39 1.543-1 1.997V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.338c-1.292.048-2.745.088-4 .088s-2.708-.04-4-.088V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.892c-.61-.454-1-1.183-1-1.997v-.413a2.5 2.5 0 0 1 .049-.49l.335-1.68c.11-.546.465-1.012.964-1.261a.8.8 0 0 0 .381-.404l.792-1.848ZM3 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2m10 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2M6 8a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2zM2.906 5.189a.51.51 0 0 0 .497.731c.91-.073 3.35-.17 4.597-.17s3.688.097 4.597.17a.51.51 0 0 0 .497-.731l-.956-1.913A.5.5 0 0 0 11.691 3H4.309a.5.5 0 0 0-.447.276L2.906 5.19Z"/>
+            </svg>
+          </button>
+        </a>
+        </div>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
